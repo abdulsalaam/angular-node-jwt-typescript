@@ -1,3 +1,4 @@
 export interface LoginResponse {
-    status: string;
+    result: boolean;
+    message: string;
 }

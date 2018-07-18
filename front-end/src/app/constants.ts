@@ -1,4 +1,4 @@
 export const config: { loginEndpoint, logoutEndpoint } = {
-    loginEndpoint: 'login',
-    logoutEndpoint: 'logout'
+    loginEndpoint: 'api/login',
+    logoutEndpoint: 'api/logout'
 };

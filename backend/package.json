@@ -14,12 +14,17 @@
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.16.0",
+    "@types/jsonwebtoken": "^7.2.8",
+    "@types/mysql": "^2.15.5",
     "concurrently": "^3.6.0",
     "nodemon": "^1.17.5",
     "typescript": "^2.9.2"
   },
   "dependencies": {
+    "@mysql/xdevapi": "^8.0.11",
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mysql": "^2.15.0"
   }
 }

@@ -14,7 +14,7 @@ import { AuthenticationService } from '../core/services/authentication.service';
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
-
+  message: string;
   constructor(private fb: FormBuilder, private authenticationService: AuthenticationService, private router: Router) {}
 
   ngOnInit() {
@@ -28,8 +28,13 @@ export class LoginComponent implements OnInit {
       const formValue = this.loginForm.value;
       let userInfo: UserInfo = new UserInfo(formValue.userId, formValue.password);
       let loginStatus$ = this.authenticationService.login(userInfo);
-      loginStatus$.pipe(take(1)).subscribe(() => {
-          this.router.navigate(['access-requests']);
+      loginStatus$.pipe(take(1)).subscribe((response: HttpResponse<LoginResponse>) => {
+          console.log(`Response from the login endpoint`, response);
+          if (response.body.result) {
+              this.router.navigate(['dashboard']);
+          } else {
+              this.message = response.body.message;
+          }
       }, e => {
           //TODO display error message
           console.log(`The error: `, e);
