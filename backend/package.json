@@ -8,7 +8,9 @@
     "watch-node": "nodemon dist/server.js",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\""
+    "html": "cp -r ./src/public ./dist/public",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "build": "npm run build-ts && npm run html"
   },
   "author": "",
   "license": "ISC",
